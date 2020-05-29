@@ -17,11 +17,14 @@ var OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 var request        = require('request');
 var handlebars     = require('handlebars');
 
+var fs 		   = require('fs');
+var path 	   = require('path');
+
 // Define our constants, you will change these with your own
-const TWITCH_CLIENT_ID = '<YOUR CLIENT ID HERE>';
-const TWITCH_SECRET    = '<YOUR CLIENT SECRET HERE>';
-const SESSION_SECRET   = '<SOME SECRET HERE>';
-const CALLBACK_URL     = '<YOUR REDIRECT URL HERE>';  // You can run locally with - http://localhost:3000/auth/twitch/callback
+const TWITCH_CLIENT_ID = 'hckm5uzpr2a5v6a5hub9t5r5h6hqyc';
+const TWITCH_SECRET    = fs.readFileSync(path.join(__dirname, '.secret/client_secret')).toString();
+const SESSION_SECRET   = fs.readFileSync(path.join(__dirname, '.secret/session_secret')).toString();
+const CALLBACK_URL     = 'kounex://obs-station';
 
 // Initialize Express and middlewares
 var app = express();
