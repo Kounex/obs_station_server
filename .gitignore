@@ -1,1 +1,5 @@
+# exclude hidden files / folders
+.*
+
+# exclude node moduels since they get installed after npm install
 node_modules
